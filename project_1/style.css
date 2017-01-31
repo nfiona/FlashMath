@@ -1,0 +1,23 @@
+.container {
+  margin: 50px;
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ flex-wrap: wrap;
+}
+
+
+.card {
+  height: 200px;
+  width: 200px;
+  background-color: black;
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+  text-align: center;
+}
+
+h2 {
+  margin: 80px 0 80px 0;
+  display: none;
+}
