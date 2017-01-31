@@ -26,8 +26,14 @@ answer:150
 }
 ];
 
+/*function tryAgain() {
+  $("#wrong").css("display", "block")
+};*/
 
- var clearFields = function() {
+
+
+
+function clearFields() {
 
      document.getElementById("input").value = "";
 };
@@ -37,7 +43,11 @@ var next = function() {
   if (userInput.val() == qBank[0].answer) {
     document.getElementById('question').innerHTML = qBank[1].question;
     clearFields();
-  }
+  /*} if (userInput.val() !== qBank[0].answer){
+    document.getElementById('question').innerHTML = qBank[0].question;
+    //tryAgain();
+    //clearFields();*/
+}
     if (userInput.val() == qBank[1].answer) {
       document.getElementById('question').innerHTML = qBank[2].question;
       clearFields();
@@ -58,7 +68,8 @@ var next = function() {
    if (userInput.val() == qBank[5].answer) {
     alert("GREAT JOB!!");
     clearFields();
-    startGame();
+    document.getElementById('question').innerHTML = qBank[0].question;
+
 }
 }
 
@@ -66,8 +77,17 @@ userAnswer.on("click", function(){
   next();
 });
 
+$('#input').keypress(function(e) {
+  if (e.which == '13') {
+     e.preventDefault();
+     next();
+   }
+});
+
+
 }
 startGame();
+
 
 /*userInput.keypress(function(){
   next();
