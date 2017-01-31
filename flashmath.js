@@ -8,25 +8,24 @@ var qBank = [
  {question: " 22 x 100 ?",
  answer: 2200},
  {question:"33 x 3 ?",
-answer:99,
-question:"33 x 2 ?",
-answer:66,
-question:"25 x 6 ?",
-answer:150,
+answer:99},
+{question:"33 x 2 ?",
+answer:66},
+{question:"25 x 6 ?",
+answer:150
 }
 ];
 
+//var thirty = "30";
+//var thirtyNumber = parseInt(thirty);
+
 var next = function() {
-  if (userInput.val() === 30) {
+  if (userInput.val() === "30") {
     document.getElementById('question').innerHTML = qBank[0].question;
-  } else if (userInput.val() !== 30) {
-    alert("Try Again!")
-  };
+  }
     if (userInput.val() == qBank[0].answer) {
       document.getElementById('question').innerHTML = qBank[1].question;
-    } else if (userInput.val() !== qBank[0].answer) {
-      alert("Try Again!")
-    };
+    }
       if (userInput.val() == qBank[1].answer) {
         document.getElementById('question').innerHTML = qBank[2].question;
     }
@@ -35,8 +34,11 @@ var next = function() {
       }
       if (userInput.val() == qBank[3].answer) {
         document.getElementById('question').innerHTML = qBank[4].question;
-      }
   }
+};
+
+
+
 
 userAnswer.on("click", function(){
   next();
