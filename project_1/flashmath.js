@@ -4,6 +4,7 @@ function startGame() {
 var userAnswer = $('#answer');
 var userInput = $('#input');
 
+// Created a variable to hold all the math questions, which will be improved by incorporating Math.random() function (further research and study needed):
 var qBank = [
 
   {question: " 5 x 6 ?",
@@ -26,44 +27,51 @@ answer:150
 }
 ];
 
-/*function tryAgain() {
-  $("#wrong").css("display", "block")
-};*/
-
-
-
 
 function clearFields() {
 
      document.getElementById("input").value = "";
 };
 
+// Created the below codes when attempted to create a function to keep track of score, however was stuck and coldn't seem to figure out why
+// Once the function's codes are figured out, it should be placed under the clearFields() function nested in each IF condition.
+/*
+
+function score() {
+  var x = 0
+  for (x = 0; x <= qBank.length; x++) {
+  document.getElementById("track").innerHTML = x + 1;
+}
+}
+*/
 
 var next = function() {
   if (userInput.val() == qBank[0].answer) {
     document.getElementById('question').innerHTML = qBank[1].question;
     clearFields();
-  /*} if (userInput.val() !== qBank[0].answer){
-    document.getElementById('question').innerHTML = qBank[0].question;
-    //tryAgain();
-    //clearFields();*/
+    score();
+
 }
     if (userInput.val() == qBank[1].answer) {
       document.getElementById('question').innerHTML = qBank[2].question;
       clearFields();
+      score();
 
     }
       if (userInput.val() == qBank[2].answer) {
         document.getElementById('question').innerHTML = qBank[3].question;
         clearFields();
+        score();
     }
       if (userInput.val() == qBank[3].answer) {
         document.getElementById('question').innerHTML = qBank[4].question;
         clearFields();
+        score();
       }
       if (userInput.val() == qBank[4].answer) {
         document.getElementById('question').innerHTML = qBank[5].question;
         clearFields();
+        score();
   }
    if (userInput.val() == qBank[5].answer) {
     alert("GREAT JOB!!");
@@ -72,11 +80,12 @@ var next = function() {
 
 }
 }
-
+//event  caller to invoke the next() function when the Answer button is clicked.
 userAnswer.on("click", function(){
   next();
 });
 
+//event  caller to invoke the next() function when the Enter key is pressed.
 $('#input').keypress(function(e) {
   if (e.which == '13') {
      e.preventDefault();
@@ -87,21 +96,3 @@ $('#input').keypress(function(e) {
 
 }
 startGame();
-
-
-/*userInput.keypress(function(){
-  next();
-});*/
-
-/*userAnswer.on("click", function(){
-  if (userInput.val() === "30") {
-    next();
-  }
-})    /*if (userInput.val() === "45")
-    }
-
-
-  } else {
-    alert("Sorry, try again");
-  }
-});*/
