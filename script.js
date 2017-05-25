@@ -34,7 +34,7 @@ var next = function() {
            multiply = randomNumA * randomNumB;
         // add score.
         score++
-      console.log("your score is " + counter);
+      console.log("your score is " + score);
     }
 
 }

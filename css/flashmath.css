@@ -1,50 +1,38 @@
-
 .questionOne {
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 420px;
-  height: 420px;
-  border-radius: 50px;
-  margin: 80px auto;
+  width: 400px;
+  height: 400px;
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-top: 20px;
   background-color: black;
   color: white;
-
+}
+.questionOne p {
+  font-size: 100px;
+  padding-top: 120px;
+  padding-bottom: 50px;
+  margin: 0 auto;
+}
+.score-board {
+ background-color: grey;
+ color: white;
+ width: 400px;
+ height: 100px;
+ text-align: center;
+ margin: 0 auto;
+ border-radius: 10px;
+}
+.score-board p {
+  padding-top: 40px;
+  font-size: 30px;
 }
 
-
-h1 {
-  font-size: 60px;
-  color: #CE2D36;
-  display: none; /*currently not being displayed as the track-score function is still under construction*/
-}
-
-
-#question {
-    font-size: 80px;
-    margin: 80px 0 20px 0;
-}
-
-input {
-  text-align: center;
-  width: 100px;
-  height: 15px;
-margin: 0 20px 0 160px;
-}
-
-button {
-  width: 60px;
-  height: 15px;
-margin: 0 20px 20px 170px;
-background-color: #CE3F68;
-
-}
 
 @media only screen
   and (min-device-width: 414px)
   and (max-device-width: 736px)
-  and (-webkit-min-device-pixel-ratio: 3) { 
+  and (-webkit-min-device-pixel-ratio: 3) {
     .questionOne {
       width: 200px;
       height: 200px;
