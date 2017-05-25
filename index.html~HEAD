@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>FlashCards - Project 1</title>
+    <link rel="stylesheet" type="text/css" href="css/flashmath.css">
+  </head>
+  <body>
+    <div class="questionOne">
+      <p id="question"></p>
+      <input type="text" id="input" name="answer">
+      <button type="button" id="answer" name="answer" value="button">Answer</button>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="script_test.js"></script>
+  </body>
+</html>
