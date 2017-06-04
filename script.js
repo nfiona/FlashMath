@@ -13,13 +13,11 @@ $("#question").html(question);
 
 
 var next = function() {
-
       // convert answer to integer then check if answer is correct.
   if (parseInt(userInput.val()) !== multiply ){
     console.log("try again");
       // clear fields after each answer.
     userInput.val("");
-
   }
   if (parseInt(userInput.val()) === multiply ) {
       console.log("nice");
@@ -36,7 +34,6 @@ var next = function() {
         score++
       console.log("your score is " + score);
     }
-
 }
 
 userAnswer.on("click", function(){

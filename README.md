@@ -1,5 +1,5 @@
 
-# MATH FLASH GAME
+# FLASH MATH
 
 ## Technologies
 This simple yet refreshing game was created using utilization of HTML, CSS, and JavaScript technologies. By combining, the three elements together, it lets player do a quick brain exercise for the young and old, wherever, whenever..
