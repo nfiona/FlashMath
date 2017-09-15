@@ -7,7 +7,7 @@ function onReady() {
 }
 
 $('#startButton').on("click", function() {
-  var fiveMinutes = 60 / 2,
+  var fiveMinutes = 60 * 2,
       display = document.querySelector('#time');
   startTimer(fiveMinutes, display);
   document.getElementById('input').style.display = "block";
