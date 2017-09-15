@@ -6,18 +6,24 @@
     <link rel="stylesheet" type="text/css" href="css/flashmath.css">
   </head>
   <body>
-    <div class="score-board">
+
+    <div class="score-board white box">
       <p> YOUR SCORE IS:
         <span id=show-score>  </span>
       </p>
+      <p>TIME: <span id="time">02:00</span> minutes!</p>
+
     </div>
-    <div class="questionOne">
-      <p id="question"></p>
-      <input type="text" id="input" name="answer">
-      <button type="button" id="answer" name="answer" value="button">Answer</button>
+    <div id="questionOne" class="questionOne white box">
+      <h1 id ="startButton" class="white"><a>START GAME</a> </h1>
+      <p style="color: white;" id="question"></p>
+      <div class="" style="padding-bottom: 20px;">
+        <input type="text" id="input" name="answer">
+        <button type="button" id="answer" name="answer" value="button">Answer / Hit Enter</button>
+      </div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="script_test_oop.js"></script>
   </body>
 </html>
