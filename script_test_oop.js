@@ -3,7 +3,6 @@ function onReady() {
 
 
   var startGame = new Game();
-
 }
 
 $('#startButton').on("click", function() {
@@ -12,6 +11,10 @@ $('#startButton').on("click", function() {
   startTimer(fiveMinutes, display);
   document.getElementById('input').style.display = "block";
 
+});
+
+$('#restartButton').on("click", function() {
+  window.location.href=window.location.href;
 })
 
 
@@ -107,7 +110,9 @@ function startTimer(duration, display) {
 
         if (--timer < 0) {
             timer = 0;
-            document.getElementById('input').style.display = "none";
+            // document.getElementById('input').style.display = "none";
+            document.getElementById('startButton').style.display = "none";
+            document.getElementById('restartButton').style.display = "block";
         }
     }, 100);
 }

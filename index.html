@@ -8,18 +8,17 @@
   <body>
 
     <div class="score-board white box">
-      <p> YOUR SCORE IS:
-        <span id=show-score>  </span>
-      </p>
-      <p>TIME: <span id="time">02:00</span> minutes!</p>
+      <h1>SCORE:<span id=show-score> 0 </span></h1>
+      <h2>TIME: <span id="time">02:00</span> !</h2>
 
     </div>
     <div id="questionOne" class="questionOne white box">
-      <h1 id ="startButton" class="white"><a>START GAME</a> </h1>
+      <h2 id ="startButton" class="white border"><a>START GAME</a> </h2>
+      <h2 id ="restartButton" class="white border"><a>RESTART</a> </h2>
       <p style="color: white;" id="question"></p>
       <div class="" style="padding-bottom: 20px;">
-        <input type="text" id="input" name="answer">
-        <button type="button" id="answer" name="answer" value="button">Answer / Hit Enter</button>
+        <input type="text" id="input" name="answer" class="white" autofocus>
+        <button type="button" id="answer" class="white border" name="answer" value="button">Answer / Hit Enter</button>
       </div>
     </div>
 
