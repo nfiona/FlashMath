@@ -17,6 +17,7 @@ body {
 
 .box {
   width: 30vw;
+  min-width: 300px;
   height: auto;
   margin: auto;
   padding-top: 10px;
@@ -27,7 +28,7 @@ body {
 }
 
 .questionOne p {
-  font-size: 100px;
+  font-size: calc(30px + 7.4vw);
   padding-top: 40px;
   padding-bottom: 10px;
   margin: 0 auto;
@@ -101,15 +102,46 @@ h1 {
 
 
 @media only screen
-  and (min-device-width: 414px)
-  and (max-device-width: 736px)
-  and (-webkit-min-device-pixel-ratio: 3) {
+  and (min-width: 320px)
+  and (max-width: 568px) {
+
     .questionOne {
       width: 200px;
       height: 200px;
-
     }
 
+    body {
+      height: 100vh;
+    }
 
+}
 
+@media only screen
+and (min-width : 330px)
+and (max-width : 746px)
+and (orientation : landscape) {
+
+  .score-board {
+    background: transparent;
+    margin: 0;
+    text-align: left;
+  }
+
+  .score-board h1, h1 {
+    font-size: 20px;
+  }
+
+  #questionOne {
+    margin-top: -90px !important;
+    background-color: rgba(0,0,0,0.7);
+  }
+
+  #questionOne h2 {
+    font-size: 20px;
+    width: 60%;
+  }
+
+  .questionOne p {
+    padding-top: 20px;
+  }
 }
