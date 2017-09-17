@@ -1,124 +1,151 @@
 
 function onReady() {
 
-
   var startGame = new Game();
 }
 
+// Start timer on click.
 $('#startButton').on("click", function() {
-  var fiveMinutes = 60 / 1,
+  var fiveMinutes = 60 * 1,
       display = document.querySelector('#time');
   startTimer(fiveMinutes, display);
   document.getElementById('input').style.display = "block";
 
 });
 
+// Restart game.
 $('#restartButton').on("click", function() {
   window.location.href=window.location.href;
 })
 
+// Set timer
+function startTimer(duration, display) {
+  var timer = duration, minutes, seconds;
+  console.log(duration);
 
-var q = document.getElementById('question');
+  setInterval(function () {
+      minutes = parseInt(timer / 60, 10);
+      seconds = parseInt(timer % 60, 10);
+
+      minutes = minutes > 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+
+      display.textContent = minutes + ":" + seconds;
+      // time turns red when it hits 10 seconds left.
+      if (timer < 11) {
+        document.getElementById('time').style.color = "red";
+      };
+      // time out functionalities.
+      if (--timer < 0) {
+          timer = 0;
+          document.getElementById('input').style.display = "none";
+          document.getElementById('startButton').style.display = "none";
+          document.getElementById('restartButton').style.display = "block";
+      }
+  }, 1000);
+}
+
+
+
 var userInput = $('#input');
 var userAnswer = $('#answer');
-var randomNumA = Math.floor(Math.random() * 10 + 1);
-var randomNumB = Math.floor(Math.random() * 10 + 1);
-var multiply = randomNumA * randomNumB;
-var add = randomNumA + randomNumB;
-var substract = randomNumA - randomNumB;
-var division = randomNumA / randomNumB;
-var questionA = randomNumA + " x " + randomNumB + "?";
-var questionB = randomNumA + " + " + randomNumB + "?";
-var score = 0;
+var num1 = Math.floor(Math.random() * (12 - 5 + 1)) + 5;
+var num2 =  Math.floor(Math.random() * (8 - 3 + 1)) + 3;
+var operator1 = num1 * num2;
+var operator2 = num1 + num2;
+var operator3 = num1 - num2;
+var operators = [operator1, operator2, operator3];
+var random = Math.floor(Math.random() * operators.length + 0);
+var questionA;
 var empty = NaN;
+var score = 0;
+var matched = operators[random];
+
 
 // set randomized questions at start of game.
 function setQuestion(n) {
-  var initialQ = document.getElementById("question");
-  initialQ.innerHTML = n;
+  questionA = n;
+  initialQ = document.getElementById("question");
+
+  if (operators[random] === operators[0]) {
+    // console.log("operator1 is used");
+    operator = num1 * num2;
+    console.log(num1 + " x " + num2);
+    n = num1 + " x " + num2;
+    questionA = n;
+    initialQ.innerHTML = n;
+
+  } else if (operators[random] === operators[1]) {
+    // console.log("operator2 is used");
+    operator = num1 + num2;
+    console.log(num1 + " + " + num2);
+    n = num1 + " + " + num2;
+    questionA = n;
+    initialQ.innerHTML = n;
+  } else if (operators[random] === operators[2]) {
+    // console.log("operator3 is used");
+    console.log(num1 + " - " + num2);
+    operator = num1 - num2;
+    n = num1 + " - " + num2;
+    questionA = n;
+    initialQ.innerHTML = n;
+  }
+
+  return operators[random];
+
 };
+
+// Set initial question
 setQuestion(questionA);
 
-
-// game main function, automatic random number generator and score keeping.
+// Game main function, automatic random number generator and score keeping.
 Game = function() {
-  //  check if answer is correct or wrong.
-        if (parseInt(userInput.val()) !== multiply){
-          Game.prototype.wrong();
-        };
-         if (parseInt(userInput.val()) === multiply  ) {
-          Game.prototype.correct();
-        };
+    //  check if answer is correct or wrong.
+    if (parseInt(userInput.val()) !== operator){
+    Game.prototype.wrong();
+  } else if (parseInt(userInput.val()) === operator) {
+    Game.prototype.correct();
+    //set new random numbers
+    num1 = Math.floor(Math.random() * (12 - 5 + 1)) + 5;
+    num2 = Math.floor(Math.random() * (10 - 5 + 1)) + 5;
+    // update question based on new random numbers
+    setQuestion(questionA);
+  };
 };
 
-
-Game.prototype.wrong = function() {
-  userInput.val("");
-  document.getElementById('question').style.color = "red";
-  console.log('wrong');
-
-}
-
+// Method for correct answer.
 Game.prototype.correct = function() {
   console.log("nice");
   // keep/ change color back to white.
   document.getElementById('question').style.color = "white";
   // clear fields after each answer.
   userInput.val("");
-   // set new random numbers.
-  var randomNumA = Math.floor(Math.random() * 10 + 1);
-  var randomNumB = Math.floor(Math.random() * 10 + 1);
-
-  // update question with new random numbers.
-  document.getElementById('question').innerHTML = randomNumA + " x " + randomNumB;
-  // update result.
-  multiply = randomNumA * randomNumB;
   // add score.
   score++
   // display new score.
   $("#show-score").html(score);
-}
+};
 
+// Method for wrong answer.
+Game.prototype.wrong = function() {
+  userInput.val("");
+  document.getElementById('question').style.color = "red";
+  // console.log('wrong');
+};
 
-// on click event handler.
+// onClick event handler.
 userAnswer.on("click", function(){
   // var userInput = $('#input');
   console.log(parseInt(userInput.val()));
   Game();
 })
 
-// "enter" presskey event handler.
+//  presskey event handler ("enter").
 userInput.keypress(function(e) {
   if(e.which == 13) {
     Game();
   }
 })
-
-// Set timer
-function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
-    console.log(duration);
-
-    setInterval(function () {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
-
-
-        minutes = minutes > 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-        // ms = ms > 99 ? ms : ms > 9 ? "0" + ms : "00" + ms;
-
-        display.textContent = minutes + ":" + seconds;
-
-        if (--timer < 0) {
-            timer = 0;
-            document.getElementById('input').style.display = "none";
-            document.getElementById('startButton').style.display = "none";
-            document.getElementById('restartButton').style.display = "block";
-        }
-    }, 1000);
-}
-
 
 
 window.onload = onReady;
