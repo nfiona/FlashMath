@@ -65,6 +65,8 @@ var matched = operators[random];
 // set randomized questions at start of game.
 function setQuestion(n) {
   questionA = n;
+  operators = [operator1, operator2, operator3];
+  random = Math.floor(Math.random() * operators.length + 0);
   initialQ = document.getElementById("question");
 
   if (operators[random] === operators[0]) {
